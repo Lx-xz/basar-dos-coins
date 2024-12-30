@@ -1,0 +1,114 @@
+#Signin {
+  grid-area: m;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  form {
+    border: 0.1rem solid #ffffff11;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-flow: column;
+    overflow: visible;
+
+    .content {
+      padding: 1rem;
+      display: flex;
+      flex-flow: column;
+      gap: 0.85rem;
+
+      h1 {
+        display: flex;
+        justify-content: center;
+      }
+
+      input {
+        background-color: #ffffff07;
+        width: 100%;
+        border: 0.1rem solid #3b3b3b;
+        border-radius: 0.5rem;
+        padding: 1rem 1.2rem;
+        outline: none;
+        font-size: 1rem;
+
+        &::placeholder {
+          text-transform: capitalize;
+        }
+      }
+
+      .btPeakPassword {
+        position: absolute;
+        left: calc(100% + .25rem);
+        background-color: #3b3b3b;
+        height: max-content;
+        padding: 0.3rem;
+        border-radius: 0.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        i {
+          margin-bottom: -.2rem;
+        }
+
+        &:hover {
+          background-color: #494949;
+          color: #fff;
+        }
+      }
+
+      .progressBarContainer {
+        background-color: #3b3b3b;
+        border-radius: 5rem;
+
+        .progressBar {
+          height: 0.2rem;
+          border-radius: 5rem;
+        }
+      }
+
+      .errorMesage {
+        height: 0;
+        padding: 0;
+        margin-top: -0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ff0000;
+        font-size: 0.8rem;
+        letter-spacing: 0.03rem;
+
+        &:not(:empty) {
+          padding: 0.5rem;
+          margin-top: 0;
+        }
+      }
+
+      button {
+        background-color: #3b3b3b;
+        padding: 0.8rem 0;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+
+        &:hover:not(:disabled) {
+          transition: 0.3s;
+          background-color: #fff;
+          color: #000;
+          cursor: pointer;
+        }
+      }
+
+      .questionAccont {
+        display: flex;
+        justify-content: center;
+
+        a {
+          color: #747bff;
+          font-weight: 600;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

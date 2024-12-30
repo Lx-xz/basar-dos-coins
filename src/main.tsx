@@ -1,36 +1,57 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { 
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
+  Navigate
 } from 'react-router-dom'
+
+import useAuth from './hooks/useAuth'
+import { AuthProvider } from './context/auth'
 
 import Header from './components/Header'
 
-import CreateAccount from './pages/CreateAccount'
-import Login from './pages/Login'
+import User from './pages/User'
+import Signup from './pages/Signup'
+import Signin from './pages/Signin'
 import Home from './pages/Home'
-import CreditPurchase from './pages/CreditPurchase'
-import Sucess from './pages/Sucess'
-import Failure from './pages/Failure'
+import Shopping from './pages/Shopping'
+import Success from './pages/Shopping/Success'
+import Failure from './pages/Shopping/Failure'
+import Cancel from './pages/Shopping/Cancel'
+import AdminPage from './pages/Admin'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <Header />
-    <main>
+const AuthRoute: React.FC<{ Item: React.ComponentType }> = ({ Item }) => {
+  const { signed } = useAuth()
+  return signed ? <Navigate to="/" /> : <Item />
+}
+
+const root = document.getElementById('root') as HTMLBodyElement
+createRoot(root)
+.render(
+    <AuthProvider>
+      <Header />
       <Router>
         <Routes>
+          <Route path='*' element={<Home />} />
           <Route path='/' element={<Home />} />
-          <Route path='/CreateAccount' element={<CreateAccount />} />
-          <Route path='/Login' element={<Login />} />
-          <Route path='/CreditPurchase' element={<CreditPurchase />} />
-          <Route path='/Sucess' element={<Sucess />} />
-          <Route path='/Failure' element={<Failure />} />
+
+          <Route path='/shopping' element={<Shopping />} />
+          <Route path='/shopping/*' element={<Shopping />} />
+          <Route path='/shopping/success' element={<Success />} />
+          <Route path='/shopping/failure' element={<Failure />} />
+          <Route path='/shopping/cancel' element={<Cancel />} />
+
+          <Route path='/user' element={<User />} />
+          <Route path='/user/*' element={<User />} />
+          <Route path='/user/signup' element={<AuthRoute Item={Signup} />} />
+          <Route path='/user/signin' element={<AuthRoute Item={Signin} />} />
+
+          <Route path='/admin' element={<AdminPage />} />
+          <Route path='/admin/:section' element={<AdminPage />} />
         </Routes>
       </Router>
-    </main>
-  </StrictMode>,
+    </AuthProvider>
 )
 
-import './style.css'
+import './global.css'

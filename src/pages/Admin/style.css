@@ -1,0 +1,205 @@
+.loading {
+    grid-area: m;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#AdminPage {
+    height: 100%;
+    display: grid;
+    grid-template-areas: 'ah' 'am';
+    grid-template-columns: 1fr;
+    grid-template-rows: 3rem 1fr;
+    position: relative;
+    scroll-behavior: smooth;
+
+    #adminHeader {
+        grid-area: ah;
+        background-color: #3a3a3a;
+        padding: 0.5rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        top: 0;
+        position: sticky;
+
+        a {
+            padding: 0.25rem 1rem;
+            border-radius: 0.5rem;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                transition: 0.3s;
+                background-color: #2e2e2e;
+            }
+        }
+    }
+
+    #adminBody {
+        grid-area: am;
+        background-color: #4a4a4a;
+        width: 100%;
+        padding: 1rem 0;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        gap: 1rem;
+
+        #salesData {
+            table {
+                border-radius: 0.5rem;
+                border-collapse: collapse;
+                overflow: hidden;
+    
+                thead {
+                    background-color: #3b3b3b;
+                    
+                    th {
+                        font-size: 1rem;
+                        font-weight: 700;
+                        letter-spacing: 0.025rem;
+                    }
+                }
+            
+                tbody {
+                    background-color: transparent;
+                    font-size: 0.8rem;
+                }
+                
+                .tableRow {
+                    th, td {
+                        height: 2.5rem;
+                        padding: 0 2rem;
+                        border-right: 0.1rem solid #515151;
+                        border-left: 0.1rem solid #515151;
+                        text-align: center;
+                    }
+    
+                    th {
+                        border-color: #3b3b3b;
+                    }
+    
+                    &.total {
+                        td {
+                            background-color: #3b3b3b;
+                            border-color: #3b3b3b;
+    
+                            &:first-child {
+                                font-size: 1rem;
+                                font-weight: 700;
+                                letter-spacing: 0.025rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        #stockData {
+            display: flex;
+            gap: 1rem;
+            
+            .display {
+                padding: 0 1rem 0 0;
+                border: 0.1rem solid #3b3b3b;
+                border-radius: 0.5rem;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                overflow: hidden;
+    
+                span {
+                    background-color: #3b3b3b;
+                    height: 100%;
+                    padding: 0.25rem 1rem;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+    
+            #addStock {
+                border: 0.1rem solid #3b3b3b;
+                border-radius: 0.5rem;
+                display: flex;
+                overflow: hidden;
+        
+                input {
+                    padding: 0 1rem;
+                    border: none;
+                    outline: none;
+                    background-color: transparent;
+                    color: #ffffff;
+                }
+        
+                button {
+                    padding: 0 1rem;
+                    background-color: #3b3b3b;
+                    color: #ffffff;
+                    font-size: 0.95rem;
+                    border: none;
+                    cursor: pointer;
+        
+                    &:hover {
+                        background-color: #2e2e2e;
+                    }
+                }
+            }
+        }
+
+        #usersData {
+            table {
+                border-radius: 0.5rem;
+                border-collapse: collapse;
+                overflow: hidden;
+    
+                thead {
+                    background-color: #3b3b3b;
+                    
+                    th {
+                        font-size: 1rem;
+                        font-weight: 700;
+                        letter-spacing: 0.025rem;
+                    }
+                }
+            
+                tbody {
+                    background-color: transparent;
+                    font-size: 0.8rem;
+                }
+                
+                .tableRow {
+                    th, td {
+                        height: 2.5rem;
+                        padding: 0 2rem;
+                        border-right: 0.1rem solid #515151;
+                        border-left: 0.1rem solid #515151;
+                        text-align: center;
+                    }
+    
+                    th {
+                        border-color: #3b3b3b;
+                    }
+    
+                    &.total {
+                        td {
+                            background-color: #3b3b3b;
+                            border-color: #3b3b3b;
+    
+                            &:first-child {
+                                font-size: 1rem;
+                                font-weight: 700;
+                                letter-spacing: 0.025rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

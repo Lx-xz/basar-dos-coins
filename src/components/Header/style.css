@@ -1,0 +1,43 @@
+header {
+  grid-area: h;
+  
+  background-color: #ffffff11;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    .navLinks {
+      padding: 0.4rem 1rem;
+      color: #747bff;
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        height: 0.15rem;
+        border-radius: 0.5rem;
+        background-color: #747bff;
+      }
+
+      &:hover::before {
+        width: 100%;
+        transition: 0.3s;
+      }
+    }
+  }
+}
