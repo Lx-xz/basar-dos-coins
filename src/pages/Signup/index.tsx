@@ -93,9 +93,9 @@ export default function Signup () {
                 <div className='content'>
                     <h1>Sign Up</h1>
 
-                    <Input icon='user' name='name' type='text' className='input' placeholder='Name' ref={inName} />
-                    <Input icon='envelope' name='email' type='email' className='input' placeholder='Email' ref={inEmail} />
-                    <Input icon='lock' name='password' type='password' className='input password' placeholder='Password' ref={inPassword} onChange={validatePassword} />
+                    <Input icon='rs-user' name='name' type='text' className='input' placeholder='Name' ref={inName} />
+                    <Input icon='rs-envelope' name='email' type='email' className='input' placeholder='Email' ref={inEmail} />
+                    <Input icon='rs-lock' name='password' type='password' className='input password' placeholder='Password' ref={inPassword} onChange={validatePassword} />
                     <ProgressBar stage={passwordStrenght}/>
 
                     <p className='errorMesage'>{error}</p>

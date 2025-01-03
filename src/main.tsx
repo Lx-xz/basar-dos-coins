@@ -17,7 +17,6 @@ import Signin from './pages/Signin'
 import Home from './pages/Home'
 import Shopping from './pages/Shopping'
 import Success from './pages/Shopping/Success'
-import Failure from './pages/Shopping/Failure'
 import Cancel from './pages/Shopping/Cancel'
 import AdminPage from './pages/Admin'
 
@@ -39,7 +38,6 @@ createRoot(root)
           <Route path='/shopping' element={<Shopping />} />
           <Route path='/shopping/*' element={<Shopping />} />
           <Route path='/shopping/success' element={<Success />} />
-          <Route path='/shopping/failure' element={<Failure />} />
           <Route path='/shopping/cancel' element={<Cancel />} />
 
           <Route path='/user' element={<User />} />

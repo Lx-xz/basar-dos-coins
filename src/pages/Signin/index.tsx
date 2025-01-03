@@ -44,8 +44,8 @@ export default function Signin () {
             <form>
                 <div className='content'>
                     <h1>Sign In</h1>
-                    <Input icon='envelope' name='email' type='email' className='input' placeholder='Email' ref={inEmail} />
-                    <Input icon='lock' name='password' type='password' className='input' placeholder='Password' ref={inPassword} />
+                    <Input icon='rs-envelope' name='email' type='email' className='input' placeholder='Email' ref={inEmail} />
+                    <Input icon='rs-lock' name='password' type='password' className='input' placeholder='Password' ref={inPassword} />
 
                     <div className="errorMesage">{error}</div>
                 

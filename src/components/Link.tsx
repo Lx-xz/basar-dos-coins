@@ -1,4 +1,4 @@
-import React from 'react'
+import { forwardRef } from 'react'
 
 interface LinkProps {
     id?: string
@@ -8,12 +8,12 @@ interface LinkProps {
     onClick?: () => void
 }
 
-const Link: React.FC<LinkProps> = ({ id, className, href, text, onClick }) => {
+const Link = forwardRef<HTMLAnchorElement, LinkProps>(({ id, className, href, text, onClick }, ref) => {
     return (
-        <a id={id} className={className} href={href} onClick={onClick}>
+        <a id={id} className={className} href={href} onClick={onClick} ref={ref}>
             {text}
         </a>
     )
-}
+})
 
 export default Link

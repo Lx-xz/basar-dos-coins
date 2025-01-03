@@ -15,7 +15,7 @@ interface InputProps {
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(({id, className, name, type, placeholder, onChange, icon, min, max, step, value }, ref) => {
-    const i = `fi fi-sr-${icon}`
+    const i = `fi fi-${icon}`
 
     const lowercased = () => {
         if (name === 'email') {
@@ -48,7 +48,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({id, className, name, ty
     }
 
     return (
-        <i className={i} style={{display:'flex', alignItems:'center', gap: '1rem', position: 'relative'}}>
+        <i className={i} style={{display:'flex', alignItems:'center', position: 'relative'}}>
             <input
                 id={id}
                 className={className}

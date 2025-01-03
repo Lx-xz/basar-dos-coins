@@ -7,13 +7,20 @@ import Button from '../../../components/Button'
 
 export default function Stock () {
     const [stock, setStock] = useState<number>(0)
+    const [loading, setLoading] = useState<boolean>(false)
+    const [error, setError] = useState<string | null>(null)
 
     async function fetchStock () {
+        setLoading(true)
+        setError(null)
         try {
             const res = await api.get('/admin')
             setStock(res.data.stock.quantity)
         } catch (error) {
             console.error('Error fetching stock data', error)
+            setError('Error fetching stock data')
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -24,6 +31,8 @@ export default function Stock () {
     const [quantity, setQuantity] = useState<number>(0)
 
     async function addStock () {
+        setLoading(true)
+        setError(null)
         try {
             let res = await api.post('/addStock', {
                 quantity: Number(quantity)
@@ -34,15 +43,21 @@ export default function Stock () {
                 setStock(stock + Number(quantity))
             }
         } catch (err) {
-            
+            console.error('Error adding stock', err)
+            setError('Error adding stock')
+        } finally {
+            setLoading(false)
         }
     }
 
+    if (loading) return <div>Loading...</div>
+
+    if (error) return <div>{error}</div>
+
     return (
         <div id="stockData">
-            <h1>Stock Data</h1>
             <div className="display stock">
-                <span>Stock:</span> {stock} un
+                <span>Stock</span> {stock} un
             </div>
             
             <form id="addStock">
@@ -53,3 +68,5 @@ export default function Stock () {
         </div>
     )
 }
+
+import './style.css'

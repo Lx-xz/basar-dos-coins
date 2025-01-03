@@ -29,5 +29,5 @@ export default function Success () {
         registerBuy()
     }, [])
 
-    return (<>Success</>)
+    return (<></>)
 }

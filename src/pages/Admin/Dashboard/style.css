@@ -1,0 +1,52 @@
+#Dashboard {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    .stats {
+        width: max-content;
+        padding: 0.5rem;
+        border: 0.1rem solid #3b3b3b;
+        border-radius: 0.5rem;
+        display: grid;
+        grid-template-columns: repeat(4, max-content);
+        grid-template-rows: max-content;
+        gap: 0.5rem;
+
+        &.stock {
+            background-color: #3b3b3b;
+            display: flex;
+            flex-flow: column;
+        }
+
+        .stat {
+            background-color: #3b3b3b;
+            border-radius: 0.25rem;
+            display: flex;
+            flex-flow: column;
+            overflow: hidden;
+
+            p {
+                padding: 0.5rem 1rem;
+                text-transform: capitalize;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+
+                i { font-size: 1.2rem; display: flex; }
+            }
+
+            span {
+                background-color: #2e2e2e;
+                padding: 0.5rem 1rem;
+                font-size: 1.2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}

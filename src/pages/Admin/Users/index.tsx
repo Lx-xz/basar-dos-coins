@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
+
 import api from '../../../services/api'
+
+import Input from '../../../components/Input'
 
 type User = {
     id: string
@@ -9,6 +12,7 @@ type User = {
 
 export default function Users() {
     const [users, setUsers] = useState<User[]>([])
+    const [filteredUsers, setFilteredUsers] = useState<User[]>([])
     const [loading, setLoading] = useState<boolean>(true)
     const [error, setError] = useState<string | null>(null)
 
@@ -18,6 +22,7 @@ export default function Users() {
             let { users } = res.data
 
             setUsers(users)
+            setFilteredUsers(users)
         } catch (err) {
             setError('Failed to fetch users data')
         } finally {
@@ -29,17 +34,29 @@ export default function Users() {
         fetchUsers()
     }, [])
 
-    if (loading) {
-        return <div>Loading...</div>
+    function search (quary: string) {
+        if (!quary) {
+            setFilteredUsers(users)
+        }
+        else {
+            let filtered = users.filter((user) => {
+                return (
+                    user.name.toLowerCase().includes(quary.toLowerCase()) || user.email.toLowerCase().includes(quary.toLowerCase())
+                )
+            })
+
+            setFilteredUsers(filtered)
+        }
     }
 
-    if (error) {
-        return <div>{error}</div>
-    }
+    if (loading) return <div>Loading...</div>
+
+    if (error) return <div>{error}</div>
 
     return (
         <div id='usersData'>
-            <h1>Users Data</h1>
+            <Input icon='rs-search' name='search' type='text' placeholder='Search' onChange={(e)=>{search(e.target.value)}} />
+
             <table>
                 <thead>
                     <tr className='tableRow header'>
@@ -48,18 +65,16 @@ export default function Users() {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user) => (
+                    {filteredUsers.map((user) => (
                         <tr className='tableRow' key={user.id}>
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                         </tr>
                     ))}
-                    <tr className='tableRow total'>
-                        <td></td>
-                        <td></td>
-                    </tr>
                 </tbody>
             </table>
         </div>
     )
 }
+
+import './style.css'
