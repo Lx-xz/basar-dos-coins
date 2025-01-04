@@ -1,27 +1,31 @@
-import Link from "../Link"
-import useAuth from "../../hooks/useAuth"
+import useAuth from '../../hooks/useAuth'
+
+import Link from '../Link'
 
 export default function Header() {
-    const { signed, signOut } = useAuth()
+    const { signed } = useAuth()
 
     return (
         <header>
-            <nav>
-                <Link className="navLinks" href="/" text="Home" />
+            <Link className='link home' href='/' text='Basar dos Coins' />
 
+            <nav>
+                <Link className='link shopping' href='/shopping' text='Shopping' />
+                <Link className='link tutorial' href='' text='Tutorial' />
+            </nav>
+
+            <div className='user'>
                 {signed ? (
                     <>
-                        <Link className="navLinks" href="/shopping" text="Shopping" />
-                        <Link className="navLinks" href="/user" text="User" />
-                        <Link className="navLinks" href='/' text="Sign Out" onClick={signOut} />
+                        <Link className='link user' href='/user' text={<div className='img'></div>}/>
                     </>
                 ) : (
                     <>
-                        <Link className="navLinks" href="/user/signin" text="Signin" />
-                        <Link className="navLinks" href="/user/signup" text="Signup" />
+                        <Link className='link signup' href='/user/signup' text='Signup' />
+                        <Link className='link signin' href='/user/signin' text={<>Signin<i className='fi fi-rr-arrow-right'></i></>} />
                     </>
                 )}
-            </nav>
+            </div>
         </header>
     )
 }

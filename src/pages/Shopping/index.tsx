@@ -14,7 +14,7 @@ export default function Shopping() {
     const localUser = localStorage.getItem("user") as string
 
     if (localUser === null) {
-      window.location = "/login" as any
+      window.location = "/user/signin" as any
     } else {
       let item = {
         id: "676ee8346b6c8dd8cc690bc0",

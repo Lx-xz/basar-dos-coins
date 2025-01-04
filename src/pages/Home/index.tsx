@@ -1,6 +1,6 @@
 export default function Home () {
     return (
-        <main id='Home'>ola mundo</main>
+        <main id='Home'></main>
     )
 }
 

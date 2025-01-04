@@ -58,7 +58,11 @@
             th, td {
                 height: 2.5rem;
                 padding: 0 2rem;
-                text-align: center;
+                text-align: left;
+            }
+
+            &:not(:last-child) {
+                border-bottom: 1px solid #333;
             }
         }
     }

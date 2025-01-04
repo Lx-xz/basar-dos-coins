@@ -26,7 +26,7 @@ export default function Signup () {
         const numbers = /[0-9]/.test(passwordInValidation)
 
         const space = passwordInValidation.includes(' ')
-        const prohitibedChars = ['!', '$', '%', '^', '&', '*', '(', ')', '+', '-', '=', '[', ']', '{', '}', ';', ':', '"', '¨', '\\', '|', ',', '<', '>', '/', '?']
+        const prohitibedChars = ['!', '$', '%', '^', '&', '*', '(', ')', '+', '-', '=', '[', ']', '{', '}', ';', ':', '"', "'", '¨', '\\', '|', ',', '<', '>', '/', '?']
         let hasProhibitedChars = false
 
         if (space) {
@@ -35,7 +35,7 @@ export default function Signup () {
 
         prohitibedChars.map(char => {
             if (passwordInValidation.includes(char)) {
-                setError('Password can only contain letters, numbers and special characters: ., @, #, _')
+                setError('Special characters allowed: ., @, #, _')
                 hasProhibitedChars = true
             }
         })
@@ -60,7 +60,7 @@ export default function Signup () {
         }
     }
 
-    async function Signup () {
+    async function handleSignup () {
         if (inName.current.value !== '' && inEmail.current.value !== '' && inPassword.current.value !== '') {
             const email = inEmail.current.value
             if (/^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/.test(email) &&
@@ -89,20 +89,20 @@ export default function Signup () {
 
     return (
         <main id='Signup'>
-            <form>
+            <form onKeyPress={(e) => { if (e.key === 'Enter') handleSignup() }}>
                 <div className='content'>
                     <h1>Sign Up</h1>
 
-                    <Input icon='rs-user' name='name' type='text' className='input' placeholder='Name' ref={inName} />
-                    <Input icon='rs-envelope' name='email' type='email' className='input' placeholder='Email' ref={inEmail} />
-                    <Input icon='rs-lock' name='password' type='password' className='input password' placeholder='Password' ref={inPassword} onChange={validatePassword} />
+                    <Input icon='sr-user' name='name' type='text' className='input' placeholder='Name' ref={inName} />
+                    <Input icon='sr-envelope' name='email' type='email' className='input' placeholder='Email' ref={inEmail} />
+                    <Input icon='sr-lock' name='password' type='password' className='input password' placeholder='Password' ref={inPassword} onChange={validatePassword} />
                     <ProgressBar stage={passwordStrenght}/>
 
                     <p className='errorMesage'>{error}</p>
 
-                    <Button type='button' onClick={Signup} label='Sign Up' />
+                    <Button type='button' onClick={handleSignup} label='Sign Up' />
 
-                    <p className='questionAccont'> Already have an account? <a href='/signin'>&nbsp;Sign In&nbsp;</a></p>
+                    <p className='questionAccont'> Already have an account? <a href='/user/signin'>&nbsp;Sign In&nbsp;</a></p>
                 </div>
             </form>
         </main>

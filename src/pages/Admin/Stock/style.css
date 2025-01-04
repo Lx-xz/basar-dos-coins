@@ -1,11 +1,14 @@
 #stockData {
+    width: 100%;
     display: flex;
+    justify-content: start;
     gap: 1rem;
     
     .display {
         padding: 0 1rem 0 0;
         border: 0.1rem solid #3b3b3b;
         border-radius: 0.5rem;
+        font-size: 2rem;
         display: flex;
         align-items: center;
         gap: 1rem;
@@ -27,18 +30,19 @@
         overflow: hidden;
 
         input {
-            padding: 0 1rem;
+            background-color: transparent;
+            padding: 1rem 1rem;
             border: none;
             outline: none;
-            background-color: transparent;
             color: #ffffff;
+            font-size: 1rem;
         }
 
         button {
             padding: 0 1rem;
             background-color: #3b3b3b;
             color: #ffffff;
-            font-size: 0.95rem;
+            font-size: 1rem;
             border: none;
             cursor: pointer;
 

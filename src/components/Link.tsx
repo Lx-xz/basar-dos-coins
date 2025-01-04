@@ -4,7 +4,7 @@ interface LinkProps {
     id?: string
     className?: string
     href: string
-    text: string
+    text: string | JSX.Element
     onClick?: () => void
 }
 

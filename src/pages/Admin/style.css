@@ -14,14 +14,15 @@
 
     #adminHeader {
         grid-area: ah;
-        background-color: #3a3a3a;
+        background-color: #000000;
         width: 100%;
         padding: 0.5rem 3rem;
+        border-bottom: #202020 1px solid;
         display: flex;
         justify-content: start;
         align-items: center;
         gap: 0.5rem;
-
+        
         a {
             padding: 0.25rem 1rem;
             border-radius: 0.5rem;
@@ -45,11 +46,9 @@
                 background-color: #ffffff;
                 position: absolute;
                 top: calc(100% + 0.45rem);
-                transition: 0.3s;
             }
 
             &.active::before {
-                transition: 0.3s;
                 width: 50%;
             }
         }

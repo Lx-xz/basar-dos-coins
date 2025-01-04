@@ -1,8 +1,245 @@
 #User {
     grid-area: m;
-
+    padding: 2.5rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 2.5rem;
+
+    div {
+        height: max-content;
+        width: 100%;
+        border-radius: 1rem;
+        display: flex;
+
+        &.profile {
+            background-color: #1f1f1f;
+            flex-flow: column;
+            gap: 1rem;
+            overflow: hidden;
+
+            aside {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                &.bannerAvatar {
+                    height: min-content;
+                    display: flex;
+                    overflow: visible;
+
+                    .banner {
+                        background-color: #1a1a1a;
+                        height: 10rem;
+                        width: 100%;
+                        border-radius: 0;
+                        position: relative;
+
+                        .img {
+                            background-color: #2b2b2b;
+                            position: absolute;
+                            bottom: -2rem;
+                            left: 2rem;
+                            height: 10rem;
+                            width: 10rem;
+                            border-radius: 50%;
+                        }
+                    }
+                    
+                }
+
+                .userData {
+                    height: max-content;
+                    padding: 1rem;
+                    border-radius: 0;
+                    display: flex;
+                    flex-direction: column;
+
+                    .data {
+                        padding: 1rem;
+                        border-radius: 0;
+                        font-size: 1.3rem;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        &:not(:last-child) {
+                            border-bottom: 1px solid #333;
+                        }
+
+                        span {
+                            color: #7e7e7e;
+                            font-size: 0.9rem;
+                            font-weight: bold;
+                        }
+
+                        &.password {
+                            position: relative;
+                            
+                            .link.recoverPassword {
+                                position: absolute;
+                                right: 0;
+                                background-color: #1f1f1f;
+                                width: max-content;
+                                padding: 0.25rem 1rem;
+                                border: #333 0.1rem solid;
+                                border-radius: 0.5rem;
+                                color: #fff;
+                                font-size: 1rem;
+                                text-decoration: none;
+
+                                &:hover {
+                                    transition: 0.3s;
+                                    border-color: #868686;
+                                }
+                            }
+                        }
+
+                        &.nick {
+                            position: relative;
+
+                            form {
+                                position: absolute;
+                                right: 0;
+                                width: max-content;
+                                display: flex;
+
+                                input {
+                                    background-color: #1f1f1f;
+                                    height: 2rem;
+                                    width: 100%;
+                                    padding: 0.5rem;
+                                    border: #333 0.1rem solid;
+                                    border-radius: 0.5rem 0 0 0.5rem;
+                                    outline: none;
+                                    color: #fff;
+                                    font-size: 1rem;
+                                }
+
+                                button {
+                                    background-color: #333;
+                                    width: max-content;
+                                    padding: 1rem;
+                                    border-radius: 0 0.5rem 0.5rem 0;
+                                    border: none;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        transition: 0.3s;
+                                        background-color: #2b2b2b;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .buttons {
+                    height: max-content;
+                    width: 100%;
+                    padding: 1rem;
+                    border-radius: 0;
+                    display: flex;
+                    gap: 1rem;
+
+                    .link {
+                        height: 2rem;
+                        width: 100%;
+                        border-radius: 0.5rem;
+                        color: #fff;
+                        text-decoration: none;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        &.admin {
+                            background-color: #72008f;
+
+                            &:hover {
+                                transition: 0.3s;
+                                background-color: #660080;
+                            }
+                        }
+
+                        &.signout {
+                            border: #2b2b2b 0.1rem solid;
+                            
+                            &:hover {
+                                transition: 0.3s;
+                                color: #ff0000;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        &.table {
+            padding: 0;
+            border-radius: 0;
+            flex-direction: column;
+            gap: 1rem;
+            overflow: hidden;
+
+            table {
+                background-color: #1f1f1f;
+                width: 100%;
+                border-radius: 1rem;
+                border-collapse: collapse;
+                overflow: hidden;
+
+                th, td {
+                    padding: 1rem;
+                    text-align: left;
+                    color: #fff;
+                }
+
+                th {
+                    background-color: #333;
+                }
+
+                td {
+                    background-color: #1f1f1f;
+                }
+
+                tr:not(:last-child) {
+                    border-bottom: 1px solid #333;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    #User {
+        flex-direction: column;
+
+        .userData {
+            height: max-content;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    #User {
+        flex-direction: column;
+
+        .profile {
+            height: max-content;
+
+            aside {
+                height: max-content;
+
+                .buttons {
+                    flex-direction: column;
+
+                    a {
+                        padding: 1.5rem 0;
+                    }
+                }
+            }
+        }
+    }
 }

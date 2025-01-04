@@ -5,7 +5,7 @@ interface ButtonProps {
     className?: string
     label: string
     type?: 'button' | 'submit' | 'reset'
-    onClick: () => void
+    onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void | Promise<void>
 }
 
 const Button: React.FC<ButtonProps> = ({ id, className, label, type, onClick }) => {

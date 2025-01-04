@@ -41,17 +41,17 @@ export default function Signin () {
 
     return (
         <main id="Signin">
-            <form>
+            <form onKeyPress={(e) => { if (e.key === 'Enter') handleSignin() }}>
                 <div className='content'>
                     <h1>Sign In</h1>
-                    <Input icon='rs-envelope' name='email' type='email' className='input' placeholder='Email' ref={inEmail} />
-                    <Input icon='rs-lock' name='password' type='password' className='input' placeholder='Password' ref={inPassword} />
+                    <Input icon='sr-envelope' name='email' type='email' className='input' placeholder='Email' ref={inEmail} />
+                    <Input icon='sr-lock' name='password' type='password' className='input' placeholder='Password' ref={inPassword} />
 
                     <div className="errorMesage">{error}</div>
                 
                     <Button type='button' onClick={handleSignin} label='Sign In' />
 
-                    <p className='questionAccont'>Don't have an account? <a href='/signup'>&nbsp;Sign Up&nbsp;</a></p>
+                    <p className='questionAccont'>Don't have an account? <a href='/user/signup'>&nbsp;Sign Up&nbsp;</a></p>
                 </div>              
             </form>
         </main>
